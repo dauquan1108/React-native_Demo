@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Ionicons} from '@expo/vector-icons';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 // import {createStackNavigator} from '@react-navigation/stack';
@@ -16,38 +17,45 @@ class App extends Component {
   render() {
     return (
       <NavigationContainer>
-        <Tab.Navigator>
+        <Tab.Navigator
+        // screenOptions={({route}) => ({
+        //   tabBarIcon: ({focused, color, size}) => {
+        //     if (route.name === 'Home') {
+        //       return (
+        //         <Ionicons
+        //           name={
+        //             focused
+        //               ? 'ios-information-circle'
+        //               : 'ios-information-circle-outline'
+        //           }
+        //           size={size}
+        //           color={color}
+        //         />
+        //       );
+        //     } else if (route.name === 'Setting') {
+        //       return (
+        //         <Ionicons
+        //           name={focused ? 'ios-list-box' : 'ios-list'}
+        //           size={size}
+        //           color={color}
+        //         />
+        //       );
+        //     }
+        //   },
+        // })}
+        // tabBarOptions={{
+        //   activeTintColor: 'tomato',
+        //   inactiveTintColor: 'gray',
+        // }}
+        >
           <Tab.Screen
             name="Home"
             component={ConTents}
-            options={{
-              title: 'Home',
-              headerStyle: {
-                backgroundColor: '#f4511e',
-              },
-              headerTintColor: '#fff',
-              headerTitleStyle: {
-                fontWeight: 'bold',
-                textAlign: 'center',
-              },
-            }}
+            options={{tabBarBadge: 3}}
           />
           <Tab.Screen name="Service" component={Services} />
           <Tab.Screen name="Setting" component={Setting} />
         </Tab.Navigator>
-        {/*<Stack.Navigator*/}
-        {/*  screenOptions={{*/}
-        {/*    headerStyle: {*/}
-        {/*      backgroundColor: '#f4511e',*/}
-        {/*    },*/}
-        {/*    headerTintColor: '#fff',*/}
-        {/*  }}>*/}
-        {/*  <Stack.Screen*/}
-        {/*    name="ConTentsItems"*/}
-        {/*    component={ConTentsItem}*/}
-        {/*    // options={{title: 'My home'}}*/}
-        {/*  />*/}
-        {/*</Stack.Navigator>*/}
       </NavigationContainer>
     );
   }
