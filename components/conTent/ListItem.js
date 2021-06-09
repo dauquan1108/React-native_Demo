@@ -1,19 +1,22 @@
 import React, {Component} from 'react';
-import {StyleSheet, Image, View, Text} from 'react-native';
-class TestNative extends Component {
+import {StyleSheet, Image, View, Text, TouchableOpacity} from 'react-native';
+class ListItem extends Component {
   render() {
+    const {onPress} = this.props;
     const {item} = this.props;
     return (
-      <View style={styles.TestNative}>
-        <View style={styles.container}>
-          <Image style={styles.Img} source={item.images} />
-          <View style={styles.Content}>
-            <Text numberOfLines={2} style={styles.Text}>
-              {item.text}
-            </Text>
+      <TouchableOpacity activeOpacity={0.7} onPress={onPress}>
+        <View style={styles.TestNative}>
+          <View style={styles.container}>
+            <Image style={styles.Img} source={item.images} />
+            <View style={styles.Content}>
+              <Text numberOfLines={2} style={styles.Text}>
+                {item.text}
+              </Text>
+            </View>
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 }
@@ -36,11 +39,11 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   Img: {
+    resizeMode: 'cover',
     width: 197,
     height: 250,
   },
   Content: {
-    marginTop: 1,
     width: 197,
     height: 50,
   },
@@ -52,4 +55,4 @@ const styles = StyleSheet.create({
   },
   // end khoi
 });
-export default TestNative;
+export default ListItem;

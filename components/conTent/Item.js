@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {Image, StyleSheet, Text, View} from 'react-native';
-import a3 from '../assets/a3.png';
-import a4 from '../assets/a4.png';
+import a3 from '../../assets/a3.png';
+import a4 from '../../assets/a4.png';
 
-class GradeLevel extends Component {
+class Item extends Component {
   render() {
     return (
       <View style={styles.GradeLevel}>
@@ -13,7 +13,7 @@ class GradeLevel extends Component {
           </View>
           <View style={styles.Khoi2}>
             <Text>Maps</Text>
-            <Text>
+            <Text numberOfLines={3} style={styles.ConTents}>
               multiple columns, infinite scroll loading, or any number of other
               features it supports out of the box.
             </Text>
@@ -25,9 +25,11 @@ class GradeLevel extends Component {
           </View>
           <View style={styles.Khoi2}>
             <Text> Bảo vệ</Text>
-            <Text>
-              multiple columns, infinite scroll loading, or any number of other
-              features it supports out of the box.
+            <Text numberOfLines={3} style={styles.ConTents}>
+              Sometimes it's useful to know whether or not the device has a
+              screen reader that is currently active. The AccessibilityInfo API
+              is designed for this purpose. You can use it to query the current
+              state of
             </Text>
           </View>
         </View>
@@ -61,15 +63,18 @@ const styles = StyleSheet.create({
     marginRight: 5,
   },
   Khoi2: {
-    // backgroundColor: 'coral',
-    fontSize: 12,
     height: 80,
-    width: 355,
+    width: 358,
     overflow: 'hidden',
+    paddingRight: 5,
   },
   Anh: {
     height: 30,
     width: 30,
   },
+  ConTents: {
+    fontSize: 11,
+    lineHeight: 18,
+  },
 });
-export default GradeLevel;
+export default Item;
