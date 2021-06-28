@@ -13,6 +13,7 @@ class HorizontalItem extends Component {
             <Text numberOfLines={1} style={styles.Text}>
               {item.text}
             </Text>
+            <Text>Dau Xuan Quan</Text>
           </View>
         </View>
       </TouchableOpacity>
