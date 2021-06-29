@@ -1,24 +1,22 @@
 import * as React from 'react';
-
-// Thu vien trong tabs navigator
-
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
-// end Thu vien trong tabs navigator
 
-// Component
-
-import NewFeed from '../services/NewFeed';
-import Messenger from '../services/Messger';
-import OverView from '../services/OverView';
+//Component
 import Groups from '../services/Groups';
-// end Component
+import Messenger from '../services/Messenger';
+import NewFeed from '../services/NewFeed';
+//End Component
 
 const Tab = createMaterialBottomTabNavigator();
 
 function MyTabs() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      initialRouteName="NewFeed"
+      activeColor="#e91e63"
+      labelStyle={{fontSize: 12}}
+      style={{backgroundColor: 'tomato'}}>
       <Tab.Screen
         name="NewFeed"
         component={NewFeed}
@@ -35,17 +33,7 @@ function MyTabs() {
         options={{
           tabBarLabel: 'Messenger',
           tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="messenger" color={color} size={26} />
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="OverView"
-        component={OverView}
-        options={{
-          tabBarLabel: 'OverView',
-          tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="overView" color={color} size={26} />
+            <MaterialCommunityIcons name="bell" color={color} size={26} />
           ),
         }}
       />
@@ -55,7 +43,7 @@ function MyTabs() {
         options={{
           tabBarLabel: 'Groups',
           tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="groups" color={color} size={26} />
+            <MaterialCommunityIcons name="account" color={color} size={26} />
           ),
         }}
       />

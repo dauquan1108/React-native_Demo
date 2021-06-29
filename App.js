@@ -1,15 +1,18 @@
-import * as React from 'react';
+import React, {Component} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 
-//--- trang ---//
-import MyTabs from './components/tabsNavigator/MyTabs';
-//--- end trang ---//
-// const Tab = createBottomTabNavigator();
+//Component
+import MyTabs from './components/TabNavigator/MyTabs';
+//end component
 
-export default function App() {
-  return (
-    <NavigationContainer>
-      <MyTabs />
-    </NavigationContainer>
-  );
+class App extends Component {
+  render() {
+    return (
+      <NavigationContainer>
+        <MyTabs />
+      </NavigationContainer>
+    );
+  }
 }
+
+export default App;
