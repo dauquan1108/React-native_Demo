@@ -1,49 +1,76 @@
 import * as React from 'react';
-// import {Image, StyleSheet} from 'react-native';
+import {Image, StyleSheet} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
-
 //Component
-import Groups from '../services/Groups';
-import Messenger from '../services/Messenger';
-import NewFeed from '../services/NewFeed';
+import Home from '../services/Home';
+import Friends from '../services/Friends';
+import Gallery from '../services/Gallery';
+import Notification from '../services/Notification';
+import Menu from '../services/Menu';
 //End Component
+import home from '../../assets/home.png';
+import friends from '../../assets/friends.png';
+import gallery from '../../assets/gallery.png';
+import bell from '../../assets/bell.png';
+import menu from '../../assets/menu.png';
 
 const Tab = createMaterialBottomTabNavigator();
 
 export default function MyTabs() {
   return (
     <Tab.Navigator
-      initialRouteName="NewFeed"
-      activeColor="#e91e63"
-      labelStyle={{fontSize: 12}}
-      style={{backgroundColor: 'tomato'}}>
+      initialRouteName="Home"
+      activeColor="#f0edf6"
+      barStyle={{backgroundColor: '#040405'}}
+      labelStyle={{fontSize: 20, fontWeight: 'bold'}}>
       <Tab.Screen
-        name="NewFeed"
-        component={NewFeed}
+        name="Home"
+        component={Home}
         options={{
           tabBarLabel: 'Home',
-          tabBarIcon: ({color}) => <Icon name="home" color={color} size={30} />,
-        }}
-      />
-      <Tab.Screen
-        name="Messenger"
-        component={Messenger}
-        options={{
-          tabBarLabel: 'Messenger',
           tabBarIcon: ({color}) => (
-            <Icon name="rocket" color={color} size={30} />
+            <Image style={styles.tinyLogo} source={home} />
           ),
         }}
       />
       <Tab.Screen
-        name="Groups"
-        component={Groups}
+        name="OverView"
+        component={Friends}
         options={{
-          tabBarLabel: 'Groups',
+          tabBarLabel: 'Friends',
           tabBarIcon: ({color}) => (
-            <Icon name="rocket" color={color} size={30} />
+            <Image style={styles.tinyLogo} source={friends} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Messenger"
+        component={Gallery}
+        options={{
+          tabBarLabel: 'Gallery',
+          tabBarIcon: ({color}) => (
+            <Image style={styles.tinyLogo} source={gallery} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Notification"
+        component={Notification}
+        options={{
+          tabBarLabel: 'Notification',
+          tabBarIcon: ({color}) => (
+            <Image style={styles.tinyLogo} source={bell} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Menu"
+        component={Menu}
+        options={{
+          tabBarLabel: 'Menu',
+          tabBarIcon: ({color}) => (
+            <Image style={styles.tinyLogo} source={menu} />
           ),
         }}
       />
@@ -51,16 +78,16 @@ export default function MyTabs() {
   );
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     paddingTop: 50,
-//   },
-//   tinyLogo: {
-//     width: 10,
-//     height: 10,
-//   },
-//   logo: {
-//     width: 10,
-//     height: 10,
-//   },
-// });
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 50,
+  },
+  tinyLogo: {
+    width: 20,
+    height: 20,
+  },
+  logo: {
+    width: 45,
+    height: 45,
+  },
+});

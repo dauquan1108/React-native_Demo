@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 
-class NewFeed extends Component {
+class Notification extends Component {
   render() {
     return (
       <View>
-        <Text>trang newfeed</Text>
+        <Text>trang Notification</Text>
       </View>
     );
   }
 }
 
-export default NewFeed;
+export default Notification;

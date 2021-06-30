@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 
-class Services extends Component {
+class Menu extends Component {
   render() {
     return (
-      <View style={styles.Servers}>
-        <Text> Services trang !!! </Text>
+      <View style={styles.Menu}>
+        <Text> Services Menu !!! </Text>
       </View>
     );
   }
 }
+export default Menu;
 const styles = StyleSheet.create({});
-export default Services;
