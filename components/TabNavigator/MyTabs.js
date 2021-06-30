@@ -1,6 +1,6 @@
 import * as React from 'react';
+import {Image, StyleSheet} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import {MaterialCommunityIcons} from '@expo/vector-icons';
 
 //Component
 import Groups from '../services/Groups';
@@ -10,7 +10,7 @@ import NewFeed from '../services/NewFeed';
 
 const Tab = createMaterialBottomTabNavigator();
 
-function MyTabs() {
+export default function MyTabs() {
   return (
     <Tab.Navigator
       initialRouteName="NewFeed"
@@ -23,7 +23,10 @@ function MyTabs() {
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
+            <Image
+              style={styles.tinyLogo}
+              source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
+            />
           ),
         }}
       />
@@ -33,7 +36,10 @@ function MyTabs() {
         options={{
           tabBarLabel: 'Messenger',
           tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="bell" color={color} size={26} />
+            <Image
+              style={styles.tinyLogo}
+              source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
+            />
           ),
         }}
       />
@@ -43,10 +49,27 @@ function MyTabs() {
         options={{
           tabBarLabel: 'Groups',
           tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="account" color={color} size={26} />
+            <Image
+              style={styles.tinyLogo}
+              source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
+            />
           ),
         }}
       />
     </Tab.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    paddingTop: 50,
+  },
+  tinyLogo: {
+    width: 10,
+    height: 10,
+  },
+  logo: {
+    width: 10,
+    height: 10,
+  },
+});
