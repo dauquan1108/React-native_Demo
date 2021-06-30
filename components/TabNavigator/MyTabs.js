@@ -1,6 +1,8 @@
 import * as React from 'react';
-import {Image, StyleSheet} from 'react-native';
+// import {Image, StyleSheet} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 //Component
 import Groups from '../services/Groups';
@@ -23,10 +25,7 @@ export default function MyTabs() {
         options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({color}) => (
-            <Image
-              style={styles.tinyLogo}
-              source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
-            />
+            <Icon name="rocket" color="#eee" size={30} />
           ),
         }}
       />
@@ -36,10 +35,7 @@ export default function MyTabs() {
         options={{
           tabBarLabel: 'Messenger',
           tabBarIcon: ({color}) => (
-            <Image
-              style={styles.tinyLogo}
-              source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
-            />
+            <Icon name="rocket" color="#eee" size={30} />
           ),
         }}
       />
@@ -49,10 +45,7 @@ export default function MyTabs() {
         options={{
           tabBarLabel: 'Groups',
           tabBarIcon: ({color}) => (
-            <Image
-              style={styles.tinyLogo}
-              source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
-            />
+            <Icon name="rocket" color="#eee" size={30} />
           ),
         }}
       />
@@ -60,16 +53,16 @@ export default function MyTabs() {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 50,
-  },
-  tinyLogo: {
-    width: 10,
-    height: 10,
-  },
-  logo: {
-    width: 10,
-    height: 10,
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     paddingTop: 50,
+//   },
+//   tinyLogo: {
+//     width: 10,
+//     height: 10,
+//   },
+//   logo: {
+//     width: 10,
+//     height: 10,
+//   },
+// });
