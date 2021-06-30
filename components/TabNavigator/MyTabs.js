@@ -24,9 +24,7 @@ export default function MyTabs() {
         component={NewFeed}
         options={{
           tabBarLabel: 'Home',
-          tabBarIcon: ({color}) => (
-            <Icon name="rocket" color="#eee" size={30} />
-          ),
+          tabBarIcon: ({color}) => <Icon name="home" color={color} size={30} />,
         }}
       />
       <Tab.Screen
@@ -35,7 +33,7 @@ export default function MyTabs() {
         options={{
           tabBarLabel: 'Messenger',
           tabBarIcon: ({color}) => (
-            <Icon name="rocket" color="#eee" size={30} />
+            <Icon name="rocket" color={color} size={30} />
           ),
         }}
       />
@@ -45,7 +43,7 @@ export default function MyTabs() {
         options={{
           tabBarLabel: 'Groups',
           tabBarIcon: ({color}) => (
-            <Icon name="rocket" color="#eee" size={30} />
+            <Icon name="rocket" color={color} size={30} />
           ),
         }}
       />
