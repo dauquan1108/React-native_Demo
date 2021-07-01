@@ -2,6 +2,11 @@ import * as React from 'react';
 import {Image, StyleSheet} from 'react-native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 
+import Ionicons from 'react-native-vector-icons/FontAwesome';
+import Icons from 'react-native-vector-icons/FontAwesome5';
+import IonIcons from 'react-native-vector-icons/Ionicons';
+import IonIcon from 'react-native-vector-icons/AntDesign';
+
 //Component
 import Home from '../services/Home';
 import Friends from '../services/Friends';
@@ -40,7 +45,8 @@ export default function MyTabs() {
         options={{
           tabBarLabel: 'Friends',
           tabBarIcon: ({color}) => (
-            <Image style={styles.tinyLogo} source={friends} />
+            // <Image style={styles.tinyLogo} source={friends} />
+            <Icons name={'user-friends'} color={color} size={20} />
           ),
         }}
       />
@@ -50,7 +56,8 @@ export default function MyTabs() {
         options={{
           tabBarLabel: 'Gallery',
           tabBarIcon: ({color}) => (
-            <Image style={styles.tinyLogo} source={gallery} />
+            // <Image style={styles.tinyLogo} source={gallery} />
+            <IonIcon name={'message1'} color={color} size={20} />
           ),
         }}
       />
@@ -60,7 +67,8 @@ export default function MyTabs() {
         options={{
           tabBarLabel: 'Notification',
           tabBarIcon: ({color}) => (
-            <Image style={styles.tinyLogo} source={bell} />
+            // <Image style={styles.tinyLogo} source={bell} />
+            <Ionicons name={'bell'} color={color} size={20} />
           ),
         }}
       />
@@ -70,7 +78,8 @@ export default function MyTabs() {
         options={{
           tabBarLabel: 'Menu',
           tabBarIcon: ({color}) => (
-            <Image style={styles.tinyLogo} source={menu} />
+            // <Image style={styles.tinyLogo} source={menu} />
+            <IonIcons name={'md-menu-outline'} color={color} size={25} />
           ),
         }}
       />

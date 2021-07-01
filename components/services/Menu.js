@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Text} from 'react-native';
+import Blog from '../group/Blog';
 
 class Menu extends Component {
   render() {
     return (
       <View style={styles.Menu}>
-        <Text> Services Menu !!! </Text>
+        <Blog />
       </View>
     );
   }
