@@ -523,20 +523,27 @@ const styles = StyleSheet.create({
   },
   BelievePackageItemHeader: {
     flexDirection: 'row',
+    flex: 1,
   },
   BelievePackageItemHeaderAvatar: {
+    flex: 2,
     width: 40,
     height: 40,
     borderRadius: 40 / 2,
     overflow: 'hidden',
   },
-  BelievePackageItemHeaderTitleName: {},
-  BelievePackageItemHeaderTitle: {},
-  BelievePackageItemHeaderTime: {},
+
+  BelievePackageItemHeaderTitle: {
+    flex: 8,
+  },
   BelievePackageItemHeaderTitleTime: {},
   BelievePackageItemHeaderTitleIcon: {},
+  BelievePackageItemHeaderTitleName: {},
+  BelievePackageItemHeaderTime: {},
 
-  BelievePackageItemHeaderIcon: {},
+  BelievePackageItemHeaderIcon: {
+    flex: 2,
+  },
 
   // end Believe
 });
