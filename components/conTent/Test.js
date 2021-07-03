@@ -21,14 +21,17 @@ import {
   Image,
   Text,
   ScrollView,
+  Dimensions,
 } from 'react-native';
-
+import IconAntDesign from 'react-native-vector-icons/AntDesign';
 import Icons from 'react-native-vector-icons/FontAwesome5';
 import IconFontis from 'react-native-vector-icons/Fontisto';
 import IconIonicons from 'react-native-vector-icons/Ionicons';
 import IconFeather from 'react-native-vector-icons/Feather';
 import IonEntypo from 'react-native-vector-icons/Entypo';
 import IonFontAwesome from 'react-native-vector-icons/FontAwesome';
+
+const windowWidth = Dimensions.get('window').width;
 
 import a1 from '../assets/a1.jpg';
 import a2 from '../assets/a2.jpg';
@@ -40,6 +43,8 @@ class BlogApp extends Component {
   }
 
   render() {
+    const color = 'red';
+    const size = 20;
     return (
       <ScrollView>
         <View style={styles.BlogApp}>
@@ -76,7 +81,7 @@ class BlogApp extends Component {
                 />
                 <TouchableOpacity style={styles.backgroundCamera}>
                   <View style={styles.IconCamera}>
-                    <IonFontAwesome name="camera" size={20} color="#000" />
+                    <IonFontAwesome name="camera" size={size} color={color} />
                   </View>
                 </TouchableOpacity>
               </View>
@@ -92,7 +97,7 @@ class BlogApp extends Component {
                 </View>
                 <TouchableOpacity style={styles.AvatarCamera}>
                   <View style={styles.IconCameraAvatar}>
-                    <IonFontAwesome name="camera" size={20} color="#000" />
+                    <IonFontAwesome name="camera" size={size} color={color} />
                   </View>
                 </TouchableOpacity>
                 <Text style={{fontSize: 25, color: '#000', fontWeight: 'bold'}}>
@@ -107,7 +112,7 @@ class BlogApp extends Component {
                   <Icons
                     name="user-edit"
                     size={25}
-                    color="#000"
+                    color={color}
                     onPress={this.goBack}
                   />
                 </TouchableOpacity>
@@ -120,7 +125,7 @@ class BlogApp extends Component {
                   <Icons
                     name="clipboard-list"
                     size={25}
-                    color="#000"
+                    color={color}
                     onPress={this.goBack}
                   />
                 </TouchableOpacity>
@@ -131,7 +136,7 @@ class BlogApp extends Component {
                   <Icons
                     name="user-friends"
                     size={25}
-                    color="#000"
+                    color={color}
                     onPress={this.goBack}
                   />
                 </TouchableOpacity>
@@ -142,7 +147,7 @@ class BlogApp extends Component {
                   <Icons
                     name="rss"
                     size={25}
-                    color="#000"
+                    color={color}
                     onPress={this.goBack}
                   />
                 </TouchableOpacity>
@@ -155,50 +160,52 @@ class BlogApp extends Component {
             <View style={styles.personalInformation}>
               <View style={styles.personalInformationPhone}>
                 <View style={styles.personalInformationPhoneIcon}>
-                  <Icons name={'phone-volume'} color={'#000'} size={20} />
+                  <Icons name={'phone-volume'} color={color} size={size} />
                 </View>
-
-                <View style={styles.personalInformationPhoneTitle}>
-                  <Text>Số điện thoại: </Text>
-                </View>
-
-                <View style={styles.personalInformationPhoneTitle}>
-                  <Text style={{fontWeight: 'bold', color: '#000'}}>
-                    0387091106
-                  </Text>
-                </View>
-                <TouchableOpacity>
-                  <View style={styles.personalInformationPhoneIcon}>
-                    <IconFontis name={'share-a'} color={'#000'} size={15} />
+                <View style={styles.personalInformationContent}>
+                  <View style={styles.personalInformationPhoneTitle}>
+                    <Text>Số điện thoại: </Text>
                   </View>
-                </TouchableOpacity>
+
+                  <View style={styles.personalInformationPhoneTitle}>
+                    <Text style={{fontWeight: 'bold', color: '#000'}}>
+                      0387091106
+                    </Text>
+                  </View>
+                  <TouchableOpacity>
+                    <View style={styles.personalInformationPhoneIcon}>
+                      <IconFontis name={'share-a'} color={color} size={15} />
+                    </View>
+                  </TouchableOpacity>
+                </View>
               </View>
 
               <View style={styles.personalInformationWork}>
                 <View style={styles.personalInformationWorkIcon}>
-                  <Icons name={'briefcase'} color={'#000'} size={20} />
+                  <Icons name={'briefcase'} color={color} size={size} />
                 </View>
 
                 <View style={styles.personalInformationWorkText}>
                   <Text style={{fontWeight: 'bold', color: '#000'}}>
-                    Viện CNPM/Công nghệ phần mềm, Viện CNPM
+                    Viện CNPM/Công nghệ phần mềm, Viện CNPM Viện CNPM
                   </Text>
                 </View>
               </View>
 
               <View style={styles.personalInformationPhone}>
                 <View style={styles.personalInformationPhoneIcon}>
-                  <Icons name={'user-circle'} color={'#000'} size={20} />
+                  <Icons name={'user-circle'} color={color} size={size} />
                 </View>
 
                 <View style={styles.personalInformationPhoneTitle}>
                   <Text>Chức vụ: </Text>
                 </View>
-
-                <View style={styles.personalInformationPhoneTitle}>
-                  <Text style={{fontWeight: 'bold', color: '#000'}}>
-                    Sinh Viên Thực Tập
-                  </Text>
+                <View style={styles.personalInformationContent}>
+                  <View style={styles.personalInformationPhoneTitle}>
+                    <Text style={{fontWeight: 'bold', color: '#000'}}>
+                      Sinh Viên Thực Tập
+                    </Text>
+                  </View>
                 </View>
               </View>
             </View>
@@ -215,30 +222,36 @@ class BlogApp extends Component {
                 </View>
 
                 <View style={styles.BelieveHeaderIconIcon}>
-                  <View style={styles.IconCamera}>
-                    <IconIonicons
-                      name="md-options-outline"
-                      size={20}
-                      color="#000"
+                  <TouchableOpacity>
+                    <View style={styles.IconCamera}>
+                      <IconIonicons
+                        name="md-options-outline"
+                        size={size}
+                        color={color}
+                      />
+                    </View>
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                    <View style={styles.IconCamera}>
+                      <IconFeather name="settings" size={size} color={color} />
+                    </View>
+                  </TouchableOpacity>
+                </View>
+              </View>
+              <TouchableOpacity>
+                <View style={styles.BelieveHeaderWhatYouThinking}>
+                  <View style={styles.BelieveHeaderWhatYouThinkingImage}>
+                    <Image
+                      source={a2}
+                      style={{
+                        flex: 1,
+                        width: 40,
+                      }}
                     />
                   </View>
-                  <View style={styles.IconCamera}>
-                    <IconFeather name="settings" size={20} color="#000" />
-                  </View>
+                  <Text> Bạn đang nghĩ gì?</Text>
                 </View>
-              </View>
-              <View style={styles.BelieveHeaderWhatYouThinking}>
-                <View style={styles.BelieveHeaderWhatYouThinkingImage}>
-                  <Image
-                    source={a2}
-                    style={{
-                      flex: 1,
-                      width: 40,
-                    }}
-                  />
-                </View>
-                <Text> Bạn đang nghĩ gì?</Text>
-              </View>
+              </TouchableOpacity>
             </View>
 
             <View style={styles.BelieveNavigation}>
@@ -265,25 +278,30 @@ class BlogApp extends Component {
                     <Image
                       source={a2}
                       style={{
-                        flex: 1,
+                        height: 40,
                         width: 40,
+                        borderRadius: 40 / 2,
                       }}
                     />
                   </View>
 
-                  <View style={styles.BelievePackageItemHeaderTitle}>
-                    <View style={styles.BelievePackageItemHeaderTitleName}>
+                  <View style={styles.BelievePackageItemHeaderContent}>
+                    <View style={styles.BelievePackageItemHeaderContentName}>
                       <Text>Đậu Xuân Quân</Text>
                     </View>
-                    <View style={styles.BelievePackageItemHeaderTitleTime}>
-                      <Text>Hôm qua</Text>
-                    </View>
-                    <View style={styles.BelievePackageItemHeaderTitleIcon}>
-                      <IconIonicons
-                        name="md-lock-closed-outline"
-                        size={15}
-                        color="#000"
-                      />
+                    <View style={styles.BelievePackageItemHeaderContentTimer}>
+                      <View
+                        style={styles.BelievePackageItemHeaderContentTimerTime}>
+                        <Text>Hôm qua </Text>
+                      </View>
+                      <View
+                        style={styles.BelievePackageItemHeaderContentTimerIcon}>
+                        <IconIonicons
+                          name="md-lock-closed-outline"
+                          size={15}
+                          color={color}
+                        />
+                      </View>
                     </View>
                   </View>
 
@@ -291,10 +309,41 @@ class BlogApp extends Component {
                     <TouchableOpacity>
                       <IonEntypo
                         name="dots-three-horizontal"
-                        size={15}
-                        color="#000"
+                        size={size}
+                        color={color}
                       />
                     </TouchableOpacity>
+                  </View>
+                </View>
+                <View style={styles.BelievePackageItemContent}>
+                  <Image
+                    source={a2}
+                    style={{height: 400, width: windowWidth}}
+                  />
+                </View>
+                <View style={styles.BelievePackageItemFooter}>
+                  <View style={styles.BelievePackageItemFooterIconAdd}>
+                    <TouchableOpacity style={styles.IconCameraAvatar}>
+                      <IconIonicons name="add" size={size} color={color} />
+                    </TouchableOpacity>
+                  </View>
+                  <View style={styles.BelievePackageItemFooterGroupIcon}>
+                    <View style={styles.BelievePackageItemFooterGroup}>
+                      <IconAntDesign name="like2" size={size} color={color} />
+                      <Text> Thích</Text>
+                    </View>
+                    <View style={styles.BelievePackageItemFooterGroup}>
+                      <Icons name="comment-alt" size={size} color={color} />
+                      <Text> Bình luận</Text>
+                    </View>
+                    <View style={styles.BelievePackageItemFooterGroup}>
+                      <IconIonicons
+                        name="ios-share-social-outline"
+                        size={size}
+                        color={color}
+                      />
+                      <Text> Chia sẻ</Text>
+                    </View>
                   </View>
                 </View>
               </View>
@@ -439,20 +488,24 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'flex-start',
-    marginBottom: 15,
+    paddingBottom: 15,
+    flex: 1,
   },
   personalInformationPhoneIcon: {
-    paddingRight: 10,
+    flex: 1,
   },
-  personalInformationPhoneTitle: {
-    paddingRight: 10,
+  personalInformationContent: {
+    flex: 10,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
+  personalInformationPhoneTitle: {},
 
   personalInformationWork: {
     flexDirection: 'row',
     flexWrap: 'wrap',
+    paddingBottom: 15,
     flex: 1,
-    marginBottom: 15,
   },
   personalInformationWorkIcon: {
     flex: 1,
@@ -516,34 +569,52 @@ const styles = StyleSheet.create({
     borderTopWidth: 4,
     borderBottomWidth: 4,
   },
-  BelievePackageItem: {
-    borderRadius: 10,
-    borderWidth: 1,
-    margin: 10,
-  },
+  BelievePackageItem: {},
   BelievePackageItemHeader: {
     flexDirection: 'row',
+    flexWrap: 'wrap',
     flex: 1,
+    margin: 10,
   },
   BelievePackageItemHeaderAvatar: {
-    flex: 2,
-    width: 40,
-    height: 40,
-    borderRadius: 40 / 2,
-    overflow: 'hidden',
+    flex: 1,
   },
 
-  BelievePackageItemHeaderTitle: {
-    flex: 8,
+  BelievePackageItemHeaderContent: {
+    flex: 7,
   },
-  BelievePackageItemHeaderTitleTime: {},
-  BelievePackageItemHeaderTitleIcon: {},
-  BelievePackageItemHeaderTitleName: {},
-  BelievePackageItemHeaderTime: {},
-
+  BelievePackageItemHeaderContentName: {},
+  BelievePackageItemHeaderContentTimer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  BelievePackageItemHeaderContentTimerTime: {},
+  BelievePackageItemHeaderContentTimerIcon: {},
   BelievePackageItemHeaderIcon: {
-    flex: 2,
+    flex: 0.5,
   },
 
+  BelievePackageItemContent: {
+    overflow: 'hidden',
+    alignItems: 'center',
+    height: 400,
+    width: windowWidth,
+  },
+
+  BelievePackageItemFooter: {
+    flexDirection: 'column',
+  },
+  BelievePackageItemFooterIconAdd: {
+    margin: 10,
+  },
+  BelievePackageItemFooterGroupIcon: {
+    borderTopWidth: 0.5,
+    flexDirection: 'row',
+    padding: 10,
+    justifyContent: 'space-between',
+  },
+  BelievePackageItemFooterGroup: {
+    flexDirection: 'row',
+  },
   // end Believe
 });
