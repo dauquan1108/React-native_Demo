@@ -5,17 +5,18 @@ import user from '../../assets/user.png';
 
 class BanDangNghiGi extends Component {
   render() {
+    const {navigation} = this.props;
     return (
-      <View style={styles.Header}>
-        <View style={styles.HeaderLeft}>
-          <Image style={styles.User} source={user} />
-        </View>
-        <View style={styles.HeaderRight}>
-          <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Messenger')}>
+        <View style={styles.Header}>
+          <View style={styles.HeaderLeft}>
+            <Image style={styles.User} source={user} />
+          </View>
+          <View style={styles.HeaderRight}>
             <Text>Bạn đang nghĩ gì ?</Text>
-          </TouchableOpacity>
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 }

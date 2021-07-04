@@ -32,6 +32,7 @@ class Header extends Component {
 export default Header;
 const styles = StyleSheet.create({
   Header: {
+    marginTop: 30,
     flexDirection: 'row',
     flexWrap: 'wrap',
     margin: 10,

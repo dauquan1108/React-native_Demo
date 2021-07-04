@@ -13,12 +13,15 @@ import Friends from '../services/Friends';
 import Gallery from '../services/Gallery';
 import Notification from '../services/Notification';
 import Menu from '../services/Menu';
+
+//test
+import SettingsStackScreen from './SettingsStackScreen';
+
+import TabNavigationBlog from '../../components/group/blog/TabNavigationBlog';
+
 //End Component
 import home from '../../assets/home.png';
-import friends from '../../assets/friends.png';
-import gallery from '../../assets/gallery.png';
 import bell from '../../assets/bell.png';
-import menu from '../../assets/menu.png';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -63,7 +66,7 @@ export default function MyTabs() {
       />
       <Tab.Screen
         name="Notification"
-        component={Notification}
+        component={SettingsStackScreen}
         options={{
           tabBarLabel: 'Notification',
           tabBarIcon: ({color}) => (
@@ -74,7 +77,7 @@ export default function MyTabs() {
       />
       <Tab.Screen
         name="Menu"
-        component={Menu}
+        component={TabNavigationBlog}
         options={{
           tabBarLabel: 'Menu',
           tabBarIcon: ({color}) => (

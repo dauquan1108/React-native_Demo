@@ -4,14 +4,18 @@ import Header from '../group/Header';
 import BanDangNghiGi from '../group/BanDangNghiGi';
 import TabNavigation from '../group/TabNavigation';
 
+import HeaderGroup from '../group/HeaderGroup';
+
 class Home extends Component {
   render() {
+    const {navigation} = this.props;
     return (
       <View>
         <ScrollView>
+          <HeaderGroup navigation={navigation} title="Thông tin xét duyệt" />
           <Header />
           <View style={styles.BorderButton} />
-          <BanDangNghiGi />
+          <BanDangNghiGi navigation={navigation} />
           <View style={styles.BorderButton} />
           <TabNavigation />
         </ScrollView>
