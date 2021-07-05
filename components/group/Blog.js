@@ -3,7 +3,6 @@ import {
   View,
   TouchableOpacity,
   StyleSheet,
-  TextInput,
   Image,
   Text,
   ScrollView,
@@ -29,8 +28,18 @@ const windowWidth = Dimensions.get('window').width;
 import a1 from '../../assets/nen.jpg';
 import a2 from '../../assets/avatar.jpg';
 // end anh
+
+import {RNCamera} from 'react-native-camera';
+
 class Blog extends Component {
-  goBack = () => {};
+  takePicture = async () => {
+    if (this.camera) {
+      const options = {quality: 0.5, base64: true};
+      const data = await this.camera.takePictureAsync(options);
+      console.log(data.uri);
+    }
+  };
+
   render() {
     const color = 'red',
       size = 20;
@@ -68,6 +77,29 @@ class Blog extends Component {
           </View>
 
           <View style={styles.personal}>
+            <RNCamera
+              ref={ref => {
+                this.camera = ref;
+              }}
+              style={styles.preview}
+              type={RNCamera.Constants.Type.back}
+              flashMode={RNCamera.Constants.FlashMode.on}
+              androidCameraPermissionOptions={{
+                title: 'Permission to use camera',
+                message: 'We need your permission to use your camera',
+                buttonPositive: 'Ok',
+                buttonNegative: 'Cancel',
+              }}
+              androidRecordAudioPermissionOptions={{
+                title: 'Permission to use audio recording',
+                message: 'We need your permission to use your audio',
+                buttonPositive: 'Ok',
+                buttonNegative: 'Cancel',
+              }}
+              onGoogleVisionBarcodesDetected={({barcodes}) => {
+                console.log(barcodes);
+              }}
+            />
             <View style={styles.personalImage}>
               <View style={styles.personalCoverImage}>
                 <Image
@@ -79,7 +111,9 @@ class Blog extends Component {
                     borderTopRightRadius: 20,
                   }}
                 />
-                <TouchableOpacity style={styles.backgroundCamera}>
+                <TouchableOpacity
+                  onPress={this.takePicture.bind(this)}
+                  style={styles.backgroundCamera}>
                   <View style={styles.IconCamera}>
                     <IonFontAwesome name="camera" size={size} color={color} />
                   </View>
