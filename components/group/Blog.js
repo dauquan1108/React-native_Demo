@@ -31,12 +31,15 @@ import a2 from '../../assets/avatar.jpg';
 
 import {RNCamera} from 'react-native-camera';
 
+import Modal from './blog/Modal';
+
 class Blog extends Component {
   takePicture = async () => {
-    if (this.camera) {
-      const options = {quality: 0.5, base64: true};
-      const data = await this.camera.takePictureAsync(options);
-      console.log(data.uri);
+    try {
+      const data = await this.camera.takePictureAsync();
+      console.log('Path to image: ' + data.uri);
+    } catch (err) {
+      // console.log('err: ', err);
     }
   };
 
@@ -77,29 +80,6 @@ class Blog extends Component {
           </View>
 
           <View style={styles.personal}>
-            <RNCamera
-              ref={ref => {
-                this.camera = ref;
-              }}
-              style={styles.preview}
-              type={RNCamera.Constants.Type.back}
-              flashMode={RNCamera.Constants.FlashMode.on}
-              androidCameraPermissionOptions={{
-                title: 'Permission to use camera',
-                message: 'We need your permission to use your camera',
-                buttonPositive: 'Ok',
-                buttonNegative: 'Cancel',
-              }}
-              androidRecordAudioPermissionOptions={{
-                title: 'Permission to use audio recording',
-                message: 'We need your permission to use your audio',
-                buttonPositive: 'Ok',
-                buttonNegative: 'Cancel',
-              }}
-              onGoogleVisionBarcodesDetected={({barcodes}) => {
-                console.log(barcodes);
-              }}
-            />
             <View style={styles.personalImage}>
               <View style={styles.personalCoverImage}>
                 <Image
@@ -111,13 +91,19 @@ class Blog extends Component {
                     borderTopRightRadius: 20,
                   }}
                 />
-                <TouchableOpacity
-                  onPress={this.takePicture.bind(this)}
-                  style={styles.backgroundCamera}>
-                  <View style={styles.IconCamera}>
-                    <IonFontAwesome name="camera" size={size} color={color} />
-                  </View>
-                </TouchableOpacity>
+                <RNCamera
+                  ref={cam => {
+                    this.camera = cam;
+                  }}
+                  style={styles.preview}>
+                  <TouchableOpacity
+                    onPress={this.takePicture}
+                    style={styles.backgroundCamera}>
+                    <View style={styles.IconCamera}>
+                      <IonFontAwesome name="camera" size={size} color={color} />
+                    </View>
+                  </TouchableOpacity>
+                </RNCamera>
               </View>
               <View style={styles.personalAvatar}>
                 <View style={styles.ImageAvatar}>
@@ -383,6 +369,8 @@ class Blog extends Component {
               </View>
             </View>
           </View>
+
+          <Modal />
         </View>
       </ScrollView>
     );
